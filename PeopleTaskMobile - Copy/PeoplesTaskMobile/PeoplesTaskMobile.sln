@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeoplesTaskMobile", "PeoplesTaskMobile\PeoplesTaskMobile.csproj", "{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EED4C76-D3E7-49D6-9E9D-EB39CA1140AF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12FBDCFE-00A0-4255-9416-4158F054E951}
+	EndGlobalSection
+EndGlobal

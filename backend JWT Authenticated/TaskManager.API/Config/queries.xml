@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<queries>
+  <!-- User Queries -->
+  <query name="GetAllUsers">
+    <sql>SELECT Id, Name, Email, CreatedDate FROM Users ORDER BY Name</sql>
+  </query>
+  
+  <query name="GetUserById">
+    <sql>SELECT Id, Name, Email, CreatedDate FROM Users WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="CreateUser">
+    <sql>INSERT INTO Users (Name, Email) OUTPUT INSERTED.Id VALUES (@Name, @Email)</sql>
+  </query>
+  
+  <query name="UpdateUser">
+    <sql>UPDATE Users SET Name = @Name, Email = @Email WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="DeleteUser">
+    <sql>DELETE FROM Users WHERE Id = @Id</sql>
+  </query>
+
+  <!-- Task Queries -->
+  <query name="GetTasksByUserId">
+    <sql>SELECT Id, Title, Description, Status, UserId, CreatedDate, DueDate FROM Tasks WHERE UserId = @UserId ORDER BY CreatedDate DESC</sql>
+  </query>
+  
+  <query name="GetTaskById">
+    <sql>SELECT Id, Title, Description, Status, UserId, CreatedDate, DueDate FROM Tasks WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="CreateTask">
+    <sql>INSERT INTO Tasks (Title, Description, Status, UserId, CreatedDate, DueDate) 
+         OUTPUT INSERTED.Id 
+         VALUES (@Title, @Description, @Status, @UserId, GETDATE(), @DueDate)</sql>
+  </query>
+  
+  <query name="UpdateTask">
+    <sql>UPDATE Tasks SET Title = @Title, Description = @Description, Status = @Status, DueDate = @DueDate WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="UpdateTaskStatus">
+    <sql>UPDATE Tasks SET Status = @Status WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="DeleteTask">
+    <sql>DELETE FROM Tasks WHERE Id = @Id</sql>
+  </query>
+  
+  <query name="GetAllTasks">
+    <sql>SELECT t.Id, t.Title, t.Description, t.Status, t.UserId, t.CreatedDate, t.DueDate, u.Name as UserName 
+         FROM Tasks t 
+         INNER JOIN Users u ON t.UserId = u.Id 
+         ORDER BY t.CreatedDate DESC</sql>
+  </query>
+</queries>

@@ -1,0 +1,16 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeoplesTaskMobile.PeoplesTaskMobile.MainPage"
+             BackgroundColor="White">
+    <Grid>
+        <WebView x:Name="TaskWebView"
+                 Source="http://192.168.64.77:3000"
+                 Navigating="TaskWebView_Navigating"
+                 Navigated="TaskWebView_Navigated" />
+        <ActivityIndicator x:Name="LoadingIndicator"
+                           IsRunning="True"
+                           IsVisible="True"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>
