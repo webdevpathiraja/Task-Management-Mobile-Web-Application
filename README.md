@@ -135,7 +135,7 @@ Task-Management-Mobile-Web-Application/
 3. **Test with Postman:**
    - Email: `aloka@example.com`
    - Password: `12345`
-   - See screenshot: ![Postman Testing Screenshot](Postman/screenshot.png)
+   - ![Postman Testing Screenshot](Postman/screenshot.png)
 
 ### Frontend Setup
 
