@@ -1,0 +1,693 @@
+{
+	"info": {
+		"_postman_id": "c529b9ea-c6cd-4f19-8d37-d378e56d0cb5",
+		"name": "hSenid assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46760551"
+	},
+	"item": [
+		{
+			"name": "JWT Authenticated - 5000",
+			"item": [
+				{
+					"name": "authorize",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "secret",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhbG9rYUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJBbG9rYSIsImp0aSI6ImYwMmFhYTE0LTdlZTUtNDZjNy05ZjA5LWFiMDBkNmMxYmFhNSIsImV4cCI6MTc1MzMzNDUzMywiaXNzIjoiVGFza01hbmFnZXJBUEkiLCJhdWQiOiJUYXNrTWFuYWdlckNsaWVudCJ9.UyygL5r1J44VBSe--5PqrnuVqz_tHTKh6JuQiwEyXLI",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aloka@example.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/users/1",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Chanuri Pathirana\",\r\n  \"email\": \"chanuriP@example.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Deploy Application with CI/CD Pipeline\",\r\n    \"description\": \"Set up automated builds, tests, and deployments to streamline development and delivery\",\r\n    \"status\": \"Pending\",\r\n    \"userId\": 7,\r\n    \"dueDate\": \"2025-09-01T12:00:00\"\r\n  }"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tasks for a user id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Misal\",\r\n  \"email\": \"misal@example.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/5",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Misal\",\r\n  \"email\": \"misal@example.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/all",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get task by task id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/task/1",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update full task by task id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Finish API integration [updated]\",\r\n  \"description\": \"Connected frontend\",\r\n  \"status\": \"In Progress\",\r\n  \"dueDate\": \"2025-07-27T12:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/7",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status by task id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"Completed\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/7/status",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"7",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task by task id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{base_ip}}:{{auth_port}}/api/tasks/13",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{auth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JWT un-authenticated - 7000",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/users/3",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Madhura Jyamalaka\",\r\n  \"email\": \"MadhuraJ@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Madhura Jyamalaka\",\r\n  \"email\": \"MadhuraJ@example.com\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tasks for a user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/8",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get alll tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/all",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get task by task id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/task/14",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"task",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update full task by task id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Finish API integration [updated] [updated]\",\r\n  \"description\": \"Connected frontend\",\r\n  \"status\": \"In Progress\",\r\n  \"dueDate\": \"2025-07-27T12:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/19",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status by task id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"Completed\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/20/status",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"20",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task by task id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_ip}}:{{unauth_port}}/api/tasks/21",
+							"protocol": "http",
+							"host": [
+								"{{base_ip}}"
+							],
+							"port": "{{unauth_port}}",
+							"path": [
+								"api",
+								"tasks",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
